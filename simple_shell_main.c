@@ -1,30 +1,40 @@
 #include "simple_shell_main.h"
 
-int main() {
-    char *prompt = "#Sshell$ ";
-    size_t n = 0;
-    ssize_t nchars_read;
-    char *input = NULL;
+/**
+ * main : entry point
+ * description: printing out a simple shell prompt
+ * Return: success(0)
+ */
 
-    while (1) {
-        printf("%s", prompt);
-        nchars_read = getline(&input, &n, stdin);
+int main(void)
+{
+	char *prompt = "#Sshell$ ";
+	size_t n = 0;
+	ssize_t nchars_read;
+	char *input = NULL;
 
-        if (nchars_read == -1) {
-            printf("Exiting shell...\n");
-            break;
-        }
+	while (1)
+	{
+		printf("%s", prompt);
+		nchars_read = getline(&input, &n, stdin);
 
-        // Remove the newline character at the end
-        if (input[nchars_read - 1] == '\n') {
-            input[nchars_read - 1] = '\0';
-        }
+		if (nchars_read == -1)
+		{
+			printf("Exiting shell...\n");
+			break;
+		}
 
-        handle_command(input);
-    }
+		/*Remove the newline character at the end*/
+		if (input[nchars_read - 1] == '\n')
+		{
+			input[nchars_read - 1] = '\0';
+		}
 
-    // Free dynamically allocated memory
-    free(input);
+		handle_command(input);
+	}
 
-    return 0;
+	/*Free dynamically allocated memory*/
+	free(input);
+
+	return (0);
 }
