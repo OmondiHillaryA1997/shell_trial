@@ -50,7 +50,6 @@ void my_printf(const char *format, ...) {
     va_end(args);
 }*/
 
-
 /* PROTOTYPES */
 int my_strcmp(const char *str1, const char *str2);
 void handle_command(char *command);
@@ -65,7 +64,8 @@ void handle_setenv(char **arguments);
 void handle_unsetenv(char **arguments);
 void custom_cd();
 int custom_strlen(const char *str);
-
+/*void my_printf(const char *format, ...);*/
 size_t my_strlen(const char *str);
+
 /* CLOSING GUARD */
 #endif
